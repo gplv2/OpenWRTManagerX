@@ -12,5 +12,5 @@ abstract class ReplyBase
 {
   ReplyBase(this.status);
 
-  final ReplyStatus status;  
+  final ReplyStatus status;
 }

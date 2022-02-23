@@ -8,18 +8,18 @@ import 'Page/mainPage.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  SettingsUtil.loadAppSettings().then((x) 
+  SettingsUtil.loadAppSettings().then((x)
     {
-    runApp(    
+    runApp(
         ChangeNotifierProvider<ThemeChangeNotifier>(
       create: (BuildContext context) => ThemeChangeNotifier(),
       child: MyApp(),
     ),
   );
-    });  
-} 
+    });
+}
 
-class MyApp extends StatelessWidget {  
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([

@@ -46,9 +46,9 @@ class SystemInfoState extends OverviewWidgetBaseState
     var releaseData = boardData["release"];
 
     var dhcpLeaseData = data[2][1];
-    var dhcpLeaseList  = DHCPLeaseStatusState.getDHCPLeaseListFromJSON(dhcpLeaseData["dhcp_leases"]);    
+    var dhcpLeaseList  = DHCPLeaseStatusState.getDHCPLeaseListFromJSON(dhcpLeaseData["dhcp_leases"]);
     DataCache.updateData(dhcpLeaseList);
-    
+
     var alwaysVisibleRows = getRows({
       "Hostname": hostName,
       "Up": Utils.formatDuration(Duration(seconds: uptime)),
@@ -74,7 +74,7 @@ class SystemInfoState extends OverviewWidgetBaseState
           "Target": releaseData["target"]
         })),
       ),
-      duration: Duration(milliseconds: 200),      
+      duration: Duration(milliseconds: 200),
     ));
     return Column(
       children: rows,

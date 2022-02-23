@@ -2,8 +2,8 @@ import 'package:openwrt_manager/Model/device.dart';
 import 'package:openwrt_manager/OpenWRT/Model/ReplyBase.dart';
 
 abstract class CommandReplyBase extends ReplyBase
-{  
-  
+{
+
   int _replyTimeStamp;
 
   int get replyTimeStamp
@@ -15,8 +15,8 @@ abstract class CommandReplyBase extends ReplyBase
   {
       _replyTimeStamp = DateTime.now().millisecondsSinceEpoch;
   }
-  
-  List<dynamic> get commandParameters; 
+
+  List<dynamic> get commandParameters;
 
   Map<String, Object> data;
 
