@@ -40,6 +40,9 @@ class SystemInfoState extends OverviewWidgetBaseState
         infoData["memory"]["free"] -
         infoData["memory"]["cached"] -
         infoData["memory"]["buffered"];
+    var diskTotal = infoData["root"]["total"];
+    var diskUsed = infoData["root"]["used"];
+    var diskFree = infoData["root"]["free"];
 
     var boardData = data[1][1];
     var hostName = boardData["hostname"];
@@ -56,7 +59,8 @@ class SystemInfoState extends OverviewWidgetBaseState
       "Memory Usage": (memoryUsed / 1024 / 1024).toStringAsFixed(2) +
           "Mb/" +
           (memoryTotal / 1024 / 1024).toStringAsFixed(2) +
-          "Mb"
+          "Mb",
+      "Disk Usage": "Free: " + (diskFree/1024).toStringAsFixed(2) + "M Used: " + (diskUsed/1024).toStringAsFixed(2) + "M Total: " + (diskTotal/1024).toStringAsFixed(2) + "M"
     });
 
     List<Widget> rows = [];
