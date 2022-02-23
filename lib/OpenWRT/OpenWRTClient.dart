@@ -6,6 +6,7 @@ import 'package:openwrt_manager/Model/Identity.dart';
 import 'package:openwrt_manager/Model/device.dart';
 import 'package:openwrt_manager/OpenWRT/Model/AuthenticateReply.dart';
 import 'package:openwrt_manager/OpenWRT/Model/CommandReplyBase.dart';
+import 'package:openwrt_manager/OpenWRT/Model/KernelLogReply.dart';
 import 'package:openwrt_manager/OpenWRT/Model/ReplyBase.dart';
 import 'package:openwrt_manager/OpenWRT/Model/DeleteClientReply.dart';
 import 'package:openwrt_manager/OpenWRT/Model/RestartInterfaceReply.dart';
@@ -41,7 +42,6 @@ class OpenWRTClient {
           ((X509Certificate cert, String host, int port) => true);
     return cli;
   }
-
 
   static String lastJSONResponse;
   static String lastJSONRequest;
@@ -133,6 +133,20 @@ class OpenWRTClient {
         return RestartInterfaceReply(ReplyStatus.Error);
     } catch (e) {
       return Future.value(RestartInterfaceReply(ReplyStatus.Error));
+    }
+  }
+
+  Future<KernelLogReply> kernelLog(AuthenticateReply auth) async {
+    try {
+      var cmd = KernelLogReply(ReplyStatus.Ok);
+      var res = await getData(auth.authenticationCookie, [cmd]);
+      var data = res[0] as KernelLogReply;
+      if ((data.data["result"] as List)[0] == 0)
+        return Future.value(data);
+      else
+        return KernelLogReply(ReplyStatus.Error);
+    } catch (e) {
+      return Future.value(KernelLogReply(ReplyStatus.Error));
     }
   }
 
