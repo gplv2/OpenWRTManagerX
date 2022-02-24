@@ -1,4 +1,4 @@
-import 'package:openwrt_manager/app/Model/device.dart';
+import 'package:openwrt_managerx/app/Model/device.dart';
 import 'CommandReplyBase.dart';
 import 'ReplyBase.dart';
 

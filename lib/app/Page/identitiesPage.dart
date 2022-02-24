@@ -1,7 +1,7 @@
 import 'package:feature_discovery/feature_discovery.dart';
 import 'package:flutter/material.dart';
-import 'package:openwrt_manager/app/Model/Identity.dart';
-import 'package:openwrt_manager/settingsUtil.dart';
+import 'package:openwrt_managerx/app/Model/Identity.dart';
+import 'package:openwrt_managerx/settingsUtil.dart';
 
 import 'Form/identityForm.dart';
 

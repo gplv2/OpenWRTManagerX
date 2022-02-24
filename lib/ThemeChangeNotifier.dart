@@ -1,6 +1,6 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
-import 'package:openwrt_manager/settingsUtil.dart';
+import 'package:openwrt_managerx/settingsUtil.dart';
 
 class ThemeChangeNotifier extends ChangeNotifier {
 

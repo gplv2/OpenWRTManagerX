@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:openwrt_manager/app/Dialog/Dialogs.dart';
-import 'package:openwrt_manager/app/Model/SelectedOverviewItem.dart';
-import 'package:openwrt_manager/app/Model/device.dart';
-import 'package:openwrt_manager/app/Overview/OverviewItemManager.dart';
-import 'package:openwrt_manager/settingsUtil.dart';
+import 'package:openwrt_managerx/app/Dialog/Dialogs.dart';
+import 'package:openwrt_managerx/app/Model/SelectedOverviewItem.dart';
+import 'package:openwrt_managerx/app/Model/device.dart';
+import 'package:openwrt_managerx/app/Overview/OverviewItemManager.dart';
+import 'package:openwrt_managerx/settingsUtil.dart';
 import 'package:uuid/uuid.dart';
 
 class OverviewItemSelectionForm extends StatefulWidget {

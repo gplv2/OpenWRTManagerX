@@ -1,6 +1,6 @@
-import 'package:openwrt_manager/app/Model/device.dart';
-import 'package:openwrt_manager/OpenWRT/Model/CommandReplyBase.dart';
-import 'package:openwrt_manager/OpenWRT/Model/ReplyBase.dart';
+import 'package:openwrt_managerx/app/Model/device.dart';
+import 'package:openwrt_managerx/OpenWRT/Model/CommandReplyBase.dart';
+import 'package:openwrt_managerx/OpenWRT/Model/ReplyBase.dart';
 
 class WifiAssociatedClientReply extends CommandReplyBase {
   WifiAssociatedClientReply(ReplyStatus status) : super(status);

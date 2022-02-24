@@ -1,10 +1,10 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:openwrt_manager/app/Model/Identity.dart';
-import 'package:openwrt_manager/app/Model/OverviewConfig.dart';
-import 'package:openwrt_manager/app/Model/SelectedOverviewItem.dart';
-import 'package:openwrt_manager/app/Model/device.dart';
+import 'package:openwrt_managerx/app/Model/Identity.dart';
+import 'package:openwrt_managerx/app/Model/OverviewConfig.dart';
+import 'package:openwrt_managerx/app/Model/SelectedOverviewItem.dart';
+import 'package:openwrt_managerx/app/Model/device.dart';
 import 'package:path_provider/path_provider.dart';
 
 import 'app/Model/AppSetting.dart';

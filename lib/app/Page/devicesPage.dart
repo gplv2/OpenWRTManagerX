@@ -1,13 +1,13 @@
 import 'package:feature_discovery/feature_discovery.dart';
 import 'package:flutter/material.dart';
-import 'package:openwrt_manager/app/Dialog/Dialogs.dart';
-import 'package:openwrt_manager/app/Model/device.dart';
-//import 'package:openwrt_manager/OpenWRT/Model/RebootReply.dart';
-//import 'package:openwrt_manager/OpenWRT/Model/KernelLogReply.dart';
-//import 'package:openwrt_manager/OpenWRT/Model/ReplyBase.dart';
-//import 'package:openwrt_manager/OpenWRT/OpenWRTClient.dart';
-import 'package:openwrt_manager/app/Page/identitiesPage.dart';
-import 'package:openwrt_manager/settingsUtil.dart';
+import 'package:openwrt_managerx/app/Dialog/Dialogs.dart';
+import 'package:openwrt_managerx/app/Model/device.dart';
+//import 'package:openwrt_managerx/OpenWRT/Model/RebootReply.dart';
+//import 'package:openwrt_managerx/OpenWRT/Model/KernelLogReply.dart';
+//import 'package:openwrt_managerx/OpenWRT/Model/ReplyBase.dart';
+//import 'package:openwrt_managerx/OpenWRT/OpenWRTClient.dart';
+import 'package:openwrt_managerx/app/Page/identitiesPage.dart';
+import 'package:openwrt_managerx/settingsUtil.dart';
 
 import 'Form/deviceForm.dart';
 import 'Form/commandsForm.dart';

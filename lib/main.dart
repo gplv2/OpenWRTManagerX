@@ -1,8 +1,8 @@
 import 'package:feature_discovery/feature_discovery.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:openwrt_manager/ThemeChangeNotifier.dart';
-import 'package:openwrt_manager/settingsUtil.dart';
+import 'package:openwrt_managerx/ThemeChangeNotifier.dart';
+import 'package:openwrt_managerx/settingsUtil.dart';
 import 'package:provider/provider.dart';
 import 'app/Page/mainPage.dart';
 

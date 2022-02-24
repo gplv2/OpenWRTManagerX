@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:openwrt_manager/app/Dialog/Dialogs.dart';
-import 'package:openwrt_manager/app/Model/device.dart';
-import 'package:openwrt_manager/OpenWRT/Model/AuthenticateReply.dart';
-import 'package:openwrt_manager/OpenWRT/Model/CommandReplyBase.dart';
-import 'package:openwrt_manager/OpenWRT/Model/ReplyBase.dart';
-import 'package:openwrt_manager/OpenWRT/OpenWRTClient.dart';
-import 'package:openwrt_manager/app/Overview/NetworkTraffic.dart';
-import 'package:openwrt_manager/app/Overview/OverviewItemManager.dart';
-import 'package:openwrt_manager/common/utils/Utils.dart';
-import 'package:openwrt_manager/dataCache.dart';
-import 'package:openwrt_manager/common/icons/my_flutter_app_icons.dart';
+import 'package:openwrt_managerx/app/Dialog/Dialogs.dart';
+import 'package:openwrt_managerx/app/Model/device.dart';
+import 'package:openwrt_managerx/OpenWRT/Model/AuthenticateReply.dart';
+import 'package:openwrt_managerx/OpenWRT/Model/CommandReplyBase.dart';
+import 'package:openwrt_managerx/OpenWRT/Model/ReplyBase.dart';
+import 'package:openwrt_managerx/OpenWRT/OpenWRTClient.dart';
+import 'package:openwrt_managerx/app/Overview/NetworkTraffic.dart';
+import 'package:openwrt_managerx/app/Overview/OverviewItemManager.dart';
+import 'package:openwrt_managerx/common/utils/Utils.dart';
+import 'package:openwrt_managerx/dataCache.dart';
+import 'package:openwrt_managerx/common/icons/my_flutter_app_icons.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 import 'OverviewWidgetBase.dart';
 

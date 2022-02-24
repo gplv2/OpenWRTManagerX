@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:openwrt_manager/app/Dialog/Dialogs.dart';
-import 'package:openwrt_manager/app/Model/Identity.dart';
-import 'package:openwrt_manager/settingsUtil.dart';
+import 'package:openwrt_managerx/app/Dialog/Dialogs.dart';
+import 'package:openwrt_managerx/app/Model/Identity.dart';
+import 'package:openwrt_managerx/settingsUtil.dart';
 import 'package:uuid/uuid.dart';
 
 class IdentityForm extends StatefulWidget {

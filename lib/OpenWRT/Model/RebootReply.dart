@@ -1,5 +1,5 @@
-import 'package:openwrt_manager/app/Model/device.dart';
-import 'package:openwrt_manager/OpenWRT/Model/ReplyBase.dart';
+import 'package:openwrt_managerx/app/Model/device.dart';
+import 'package:openwrt_managerx/OpenWRT/Model/ReplyBase.dart';
 import 'CommandReplyBase.dart';
 
 class RebootReply extends CommandReplyBase {

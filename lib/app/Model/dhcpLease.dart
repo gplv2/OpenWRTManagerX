@@ -1,4 +1,4 @@
-import 'package:openwrt_manager/common/utils/Utils.dart';
+import 'package:openwrt_managerx/common/utils/Utils.dart';
 
 class DHCPLease
 {

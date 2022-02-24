@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:openwrt_manager/app/Model/device.dart';
-import 'package:openwrt_manager/OpenWRT/Model/AuthenticateReply.dart';
-import 'package:openwrt_manager/OpenWRT/Model/CommandReplyBase.dart';
-import 'package:openwrt_manager/OpenWRT/Model/ReplyBase.dart';
-import 'package:openwrt_manager/OpenWRT/OpenWRTClient.dart';
-import 'package:openwrt_manager/app/Overview/OverviewItemManager.dart';
-import 'package:openwrt_manager/app/Overview/OverviewWidgetBase.dart';
-import 'package:openwrt_manager/common/utils/Utils.dart';
+import 'package:openwrt_managerx/app/Model/device.dart';
+import 'package:openwrt_managerx/OpenWRT/Model/AuthenticateReply.dart';
+import 'package:openwrt_managerx/OpenWRT/Model/CommandReplyBase.dart';
+import 'package:openwrt_managerx/OpenWRT/Model/ReplyBase.dart';
+import 'package:openwrt_managerx/OpenWRT/OpenWRTClient.dart';
+import 'package:openwrt_managerx/app/Overview/OverviewItemManager.dart';
+import 'package:openwrt_managerx/app/Overview/OverviewWidgetBase.dart';
+import 'package:openwrt_managerx/common/utils/Utils.dart';
 import 'dart:math' as math;
 
 class ActiveConnections extends OverviewWidgetBase {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:openwrt_manager/app/Model/device.dart';
-import 'package:openwrt_manager/app/Overview/OverviewItemManager.dart';
-import 'package:openwrt_manager/settingsUtil.dart';
+import 'package:openwrt_managerx/app/Model/device.dart';
+import 'package:openwrt_managerx/app/Overview/OverviewItemManager.dart';
+import 'package:openwrt_managerx/settingsUtil.dart';
 
 class OverviewConfigForm extends StatefulWidget {
   final List<Map<String, dynamic>> configItems;

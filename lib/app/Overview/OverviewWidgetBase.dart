@@ -1,14 +1,14 @@
 // import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:openwrt_manager/app/Dialog/Dialogs.dart';
-import 'package:openwrt_manager/app/Model/device.dart';
-import 'package:openwrt_manager/OpenWRT/Model/AuthenticateReply.dart';
-import 'package:openwrt_manager/OpenWRT/Model/CommandReplyBase.dart';
-import 'package:openwrt_manager/OpenWRT/Model/ReplyBase.dart';
-import 'package:openwrt_manager/OpenWRT/OpenWRTClient.dart';
-import 'package:openwrt_manager/app/Overview/OverviewItemManager.dart';
-import 'package:openwrt_manager/app/Page/Form/OverviewConfigForm.dart';
-import 'package:openwrt_manager/settingsUtil.dart';
+import 'package:openwrt_managerx/app/Dialog/Dialogs.dart';
+import 'package:openwrt_managerx/app/Model/device.dart';
+import 'package:openwrt_managerx/OpenWRT/Model/AuthenticateReply.dart';
+import 'package:openwrt_managerx/OpenWRT/Model/CommandReplyBase.dart';
+import 'package:openwrt_managerx/OpenWRT/Model/ReplyBase.dart';
+import 'package:openwrt_managerx/OpenWRT/OpenWRTClient.dart';
+import 'package:openwrt_managerx/app/Overview/OverviewItemManager.dart';
+import 'package:openwrt_managerx/app/Page/Form/OverviewConfigForm.dart';
+import 'package:openwrt_managerx/settingsUtil.dart';
 import 'package:flutter/services.dart';
 
 abstract class OverviewWidgetBase extends StatefulWidget {
