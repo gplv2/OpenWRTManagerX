@@ -1,13 +1,13 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:openwrt_manager/Model/Identity.dart';
-import 'package:openwrt_manager/Model/OverviewConfig.dart';
-import 'package:openwrt_manager/Model/SelectedOverviewItem.dart';
-import 'package:openwrt_manager/Model/device.dart';
+import 'package:openwrt_manager/app/Model/Identity.dart';
+import 'package:openwrt_manager/app/Model/OverviewConfig.dart';
+import 'package:openwrt_manager/app/Model/SelectedOverviewItem.dart';
+import 'package:openwrt_manager/app/Model/device.dart';
 import 'package:path_provider/path_provider.dart';
 
-import 'Model/AppSetting.dart';
+import 'app/Model/AppSetting.dart';
 
 class SettingsUtil {
   static final SettingsUtil _singleton = SettingsUtil._internal();

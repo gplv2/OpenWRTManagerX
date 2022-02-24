@@ -2,8 +2,8 @@ import 'dart:async';
 import 'dart:io';
 import 'dart:convert';
 import 'package:flutter/cupertino.dart';
-import 'package:openwrt_manager/Model/Identity.dart';
-import 'package:openwrt_manager/Model/device.dart';
+import 'package:openwrt_manager/app/Model/Identity.dart';
+import 'package:openwrt_manager/app/Model/device.dart';
 import 'package:openwrt_manager/OpenWRT/Model/AuthenticateReply.dart';
 import 'package:openwrt_manager/OpenWRT/Model/CommandReplyBase.dart';
 import 'package:openwrt_manager/OpenWRT/Model/KernelLogReply.dart';
@@ -11,7 +11,7 @@ import 'package:openwrt_manager/OpenWRT/Model/ReplyBase.dart';
 import 'package:openwrt_manager/OpenWRT/Model/DeleteClientReply.dart';
 import 'package:openwrt_manager/OpenWRT/Model/RestartInterfaceReply.dart';
 import 'package:openwrt_manager/OpenWRT/Model/RRDNSReply.dart';
-import 'package:openwrt_manager/Utils.dart';
+import 'package:openwrt_manager/common/utils/Utils.dart';
 import 'Model/SystemInfoReply.dart';
 
 class OpenWRTClient {

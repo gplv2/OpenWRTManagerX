@@ -1,4 +1,4 @@
-import 'package:openwrt_manager/Model/device.dart';
+import 'package:openwrt_manager/app/Model/device.dart';
 import 'package:openwrt_manager/OpenWRT/Model/ReplyBase.dart';
 
 abstract class CommandReplyBase extends ReplyBase

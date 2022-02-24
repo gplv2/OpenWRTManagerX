@@ -1,4 +1,4 @@
-import 'Model/dhcpLease.dart';
+import 'app/Model/dhcpLease.dart';
 
 class DataCache {
   static Map<String, DHCPLease> _macAddressMap = Map<String, DHCPLease>();

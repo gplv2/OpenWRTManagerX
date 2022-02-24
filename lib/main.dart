@@ -4,14 +4,13 @@ import 'package:flutter/services.dart';
 import 'package:openwrt_manager/ThemeChangeNotifier.dart';
 import 'package:openwrt_manager/settingsUtil.dart';
 import 'package:provider/provider.dart';
-import 'Page/mainPage.dart';
+import 'app/Page/mainPage.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   SettingsUtil.loadAppSettings().then((x)
     {
-    runApp(
-        ChangeNotifierProvider<ThemeChangeNotifier>(
+    runApp( ChangeNotifierProvider<ThemeChangeNotifier>(
       create: (BuildContext context) => ThemeChangeNotifier(),
       child: MyApp(),
     ),
