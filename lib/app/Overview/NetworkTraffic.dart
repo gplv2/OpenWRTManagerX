@@ -7,7 +7,7 @@ import 'package:openwrt_managerx/OpenWRT/Model/ReplyBase.dart';
 import 'package:openwrt_managerx/OpenWRT/OpenWRTClient.dart';
 import 'package:openwrt_managerx/app/Overview/OverviewItemManager.dart';
 import 'package:openwrt_managerx/app/Overview/OverviewWidgetBase.dart';
-import 'package:openwrt_managerx/common/utils/Utils.dart';
+import 'package:openwrt_managerx/common/utils/utils.dart';
 import 'package:openwrt_managerx/common/icons/my_flutter_app_icons.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 
@@ -23,7 +23,7 @@ class NetworkTraffic extends OverviewWidgetBase {
 }
 
 class NetworkTrafficState extends OverviewWidgetBaseState {
-  List<String> _interfaces;
+  List<String>? _interfaces;
   var _trafficData = Map<String, Map<String, dynamic>>();
 
   @override
@@ -36,7 +36,7 @@ class NetworkTrafficState extends OverviewWidgetBaseState {
     for (var name in trafficInterfaces.keys) {
       var iff = trafficInterfaces[name];
       if (iff["up"] && !iff["flags"]["loopback"]) {
-        _interfaces.add(name);
+        _interfaces?.add(name);
         if (configData != null && configData[name] != true) continue;
         if (ifCounter > 1) rows.add(SizedBox(height: 10));
         var incoming = double.parse(iff["stats"]["rx_bytes"].toString()).toInt();
@@ -164,8 +164,8 @@ class NetworkTrafficState extends OverviewWidgetBaseState {
 
   @override
   List<Map<String, dynamic>> get configItems {
-    if (_interfaces == null || _interfaces.length == 0) return null;
-    return _interfaces.map((x) => {"name": "$x", "type": "bool", "category": "Select interfaces to show"}).toList();
+    if (_interfaces == null || _interfaces!.length == 0) return null;
+    return _interfaces!.map((x) => {"name": "$x", "type": "bool", "category": "Select interfaces to show"}).toList();
   }
 
   @override

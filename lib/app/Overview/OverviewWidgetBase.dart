@@ -29,7 +29,7 @@ abstract class OverviewWidgetBaseState extends State<OverviewWidgetBase> {
   static const iconSize = 20.0;
 
   @override
-  Widget build(BuildContext context) {    
+  Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.all(5),
       padding: EdgeInsets.only(bottom: 5),
@@ -144,7 +144,7 @@ abstract class OverviewWidgetBaseState extends State<OverviewWidgetBase> {
           ],
         ),
         Container(
-            decoration: BoxDecoration(),            
+            decoration: BoxDecoration(),
             child: getWidget())
       ]),
     );
@@ -186,7 +186,7 @@ abstract class OverviewWidgetBaseState extends State<OverviewWidgetBase> {
   List<dynamic> get data {
     var rp =
         widget.replies?.where((x) => widget.replyTypes.contains(x.runtimeType));
-    if (rp != null && rp.length > 0) {      
+    if (rp != null && rp.length > 0) {
       List<dynamic> orderdList = [];
       for (var r in widget
           .replyTypes) // pass reply data in the order of replyTypes property
@@ -198,7 +198,7 @@ abstract class OverviewWidgetBaseState extends State<OverviewWidgetBase> {
       try {
         oldData = orderdList.map((x) => x.data["result"]).toList();
       } catch (e) {
-        
+
       }
       return oldData;
     }
@@ -219,7 +219,7 @@ abstract class OverviewWidgetBaseState extends State<OverviewWidgetBase> {
   bool _gotNewData;
 
   @protected
-  bool get gotNewData {    
+  bool get gotNewData {
     return _gotNewData;
   }
 
@@ -231,7 +231,7 @@ abstract class OverviewWidgetBaseState extends State<OverviewWidgetBase> {
   }
 
   Widget _getMyWidget() {
-    try {      
+    try {
       _gotNewData = currentReplyTimeStamp > 0 && currentReplyTimeStamp != lastReplyTimeStamp;
       var w = myWidget;
       lastReplyTimeStamp = currentReplyTimeStamp;
@@ -239,7 +239,7 @@ abstract class OverviewWidgetBaseState extends State<OverviewWidgetBase> {
       badReplyData = false;
       return w;
     } catch (e, stackTrace) {
-      badReplyData = true;      
+      badReplyData = true;
       return generateErrorText(e, stackTrace, "Error parsing reply from device");
     }
   }
@@ -284,7 +284,7 @@ abstract class OverviewWidgetBaseState extends State<OverviewWidgetBase> {
         default:
       }
     }
-    
+
     return Column(children: <Widget>[
       Visibility(
           visible: !(noDataAtAll),

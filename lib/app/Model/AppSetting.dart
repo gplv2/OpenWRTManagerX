@@ -1,4 +1,4 @@
-class AppSetting 
+class AppSetting
 {
   bool autoRefresh = false;
   int autoRefreshInterval = 10;
@@ -6,15 +6,15 @@ class AppSetting
 
   Map toJson() => {
         'autoRefresh': autoRefresh,
-        'autoRefreshInterval': autoRefreshInterval,        
+        'autoRefreshInterval': autoRefreshInterval,
         'darkTheme' : darkTheme
       };
-      
+
       static AppSetting fromJson(Map<String, dynamic> json){
          var i = AppSetting();
          i.autoRefresh = json['autoRefresh'] ?? false;
-         i.autoRefreshInterval = json['autoRefreshInterval'] ?? 5;         
+         i.autoRefreshInterval = json['autoRefreshInterval'] ?? 5;
          i.darkTheme = json['darkTheme'] ?? false;
-         return i;         
+         return i;
        }
 }

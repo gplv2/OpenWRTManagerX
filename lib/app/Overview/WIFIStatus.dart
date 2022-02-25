@@ -7,7 +7,7 @@ import 'package:openwrt_managerx/OpenWRT/Model/ReplyBase.dart';
 import 'package:openwrt_managerx/OpenWRT/OpenWRTClient.dart';
 import 'package:openwrt_managerx/app/Overview/NetworkTraffic.dart';
 import 'package:openwrt_managerx/app/Overview/OverviewItemManager.dart';
-import 'package:openwrt_managerx/common/utils/Utils.dart';
+import 'package:openwrt_managerx/common/utils/utils.dart';
 import 'package:openwrt_managerx/dataCache.dart';
 import 'package:openwrt_managerx/common/icons/my_flutter_app_icons.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';

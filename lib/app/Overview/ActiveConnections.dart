@@ -6,7 +6,7 @@ import 'package:openwrt_managerx/OpenWRT/Model/ReplyBase.dart';
 import 'package:openwrt_managerx/OpenWRT/OpenWRTClient.dart';
 import 'package:openwrt_managerx/app/Overview/OverviewItemManager.dart';
 import 'package:openwrt_managerx/app/Overview/OverviewWidgetBase.dart';
-import 'package:openwrt_managerx/common/utils/Utils.dart';
+import 'package:openwrt_managerx/common/utils/utils.dart';
 import 'dart:math' as math;
 
 class ActiveConnections extends OverviewWidgetBase {
@@ -41,7 +41,8 @@ class ActiveConnectionsState extends OverviewWidgetBaseState {
   String getProtocolText(dynamic data, String ipPropName, String portPropName) {
     var ip = data[ipPropName];
     if (ip == null) return "";
-    var str = _ipLookup[ip];
+    //ip.tryParse();
+    var str = _ipLookup[ip]!;
     if (data[portPropName] != null) str = str + ":" + data[portPropName];
     return str;
   }
@@ -78,7 +79,7 @@ class ActiveConnectionsState extends OverviewWidgetBaseState {
         checkIpForLookup(con["src"], ipToResolve);
         checkIpForLookup(con["dst"], ipToResolve);
 
-        String speedText;
+        String? speedText;
 
         var connectionKey = getProtocolText(con, "src", "sport") +
             "," +
@@ -103,14 +104,14 @@ class ActiveConnectionsState extends OverviewWidgetBaseState {
         } else {
           _trafficMap[connectionKey] = Map();
           _trafficMap[connectionKey]["traffic"] = bytes;
-        }                
+        }
 
-        rows.add(Container(                    
-          margin: EdgeInsets.fromLTRB(10, 0, 10, 15),          
+        rows.add(Container(
+          margin: EdgeInsets.fromLTRB(10, 0, 10, 15),
           child: Column(
             children: [
               Row(children: [
-                Container(                    
+                Container(
                     width: 150,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,

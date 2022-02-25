@@ -1,11 +1,11 @@
-import 'package:openwrt_managerx/common/utils/Utils.dart';
+import 'package:openwrt_managerx/common/utils/utils.dart';
 
 class DHCPLease
 {
-  int expires;
-  String hostName;
-  String ipAddress;
-  String macAddress;
+  late int expires;
+  late String hostName;
+  late String ipAddress;
+  late String macAddress;
   String get expiresText
   {
     if (expires < 0)

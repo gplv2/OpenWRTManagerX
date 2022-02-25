@@ -4,7 +4,7 @@ import 'package:openwrt_managerx/OpenWRT/Model/AuthenticateReply.dart';
 import 'package:openwrt_managerx/OpenWRT/Model/CommandReplyBase.dart';
 import 'package:openwrt_managerx/app/Overview/OverviewItemManager.dart';
 import 'package:openwrt_managerx/app/Overview/OverviewWidgetBase.dart';
-import 'package:openwrt_managerx/common/utils/Utils.dart';
+import 'package:openwrt_managerx/common/utils/utils.dart';
 
 class NetworkStatus extends OverviewWidgetBase {
   NetworkStatus(
@@ -58,7 +58,7 @@ class NetworkStatusState extends OverviewWidgetBaseState {
     );
   }
 
-  List<String> _interfaces;
+  late List<String> _interfaces;
 
   @override
   List<Map<String, dynamic>> get configItems {
