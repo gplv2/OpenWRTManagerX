@@ -19,6 +19,8 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([
@@ -27,7 +29,7 @@ class MyApp extends StatelessWidget {
       ]);
     return FeatureDiscovery(
       child: MaterialApp(
-        title: 'OpenWRT Manager',
+        title: 'OpenWRT Manager X',
         theme: Provider.of<ThemeChangeNotifier>(context, listen: true).currentTheme,
         home: MainPage(),
       ),

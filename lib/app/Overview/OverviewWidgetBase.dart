@@ -185,7 +185,7 @@ abstract class OverviewWidgetBaseState extends State<OverviewWidgetBase> {
 
   List<dynamic> get data {
     var rp =
-        widget.replies?.where((x) => widget.replyTypes.contains(x.runtimeType));
+        widget.replies.where((x) => widget.replyTypes.contains(x.runtimeType));
     if (rp != null && rp.length > 0) {
       List<dynamic> orderdList = [];
       for (var r in widget

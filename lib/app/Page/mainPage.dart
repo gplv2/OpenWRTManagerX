@@ -29,7 +29,7 @@ import 'identitiesPage.dart';
 import 'package:feature_discovery/feature_discovery.dart';
 
 class MainPage extends StatefulWidget {
-  MainPage({Key key}) : super(key: key);
+  MainPage({Key? key}) : super(key: key);
 
   @override
   _MainPageState createState() => _MainPageState();
@@ -37,10 +37,15 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> with WidgetsBindingObserver {
   get availableAutoRefreshIntervals => [
-        DropdownMenuItem(value: 3, child: Text("3")),
+        DropdownMenuItem(value: 2, child: Text("3")),
         DropdownMenuItem(value: 5, child: Text("5")),
+        DropdownMenuItem(value: 7, child: Text("7")),
         DropdownMenuItem(value: 10, child: Text("10")),
-        DropdownMenuItem(value: 15, child: Text("15"))
+        DropdownMenuItem(value: 20, child: Text("20")),
+        DropdownMenuItem(value: 30, child: Text("30")),
+        DropdownMenuItem(value: 60, child: Text("60")),
+        DropdownMenuItem(value: 120, child: Text("120")),
+        DropdownMenuItem(value: 180, child: Text("180")),
       ];
 
   String _appVersion = "";
@@ -58,7 +63,7 @@ class _MainPageState extends State<MainPage> with WidgetsBindingObserver {
   void initState() {
     super.initState();
     initVersionState();
-    WidgetsBinding.instance.addObserver(this);
+    WidgetsBinding.instance?.addObserver(this);
 
     SettingsUtil.loadOverviewConfig().then((b) {
       refreshOverviews();
@@ -84,11 +89,11 @@ class _MainPageState extends State<MainPage> with WidgetsBindingObserver {
 
   @override
   void dispose() {
-    WidgetsBinding.instance.removeObserver(this);
+    WidgetsBinding.instance?.removeObserver(this);
     super.dispose();
   }
 
-  Timer autoRefreshTimer;
+  Timer? autoRefreshTimer;
 
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
@@ -122,12 +127,12 @@ class _MainPageState extends State<MainPage> with WidgetsBindingObserver {
       showOverviewDialog("Add Overview Item for a device", null);
   }
 
-  void showOverviewDialog(String title, SelectedOverviewItem soi) {
+  void showOverviewDialog(String title, SelectedOverviewItem? soi) {
     Dialogs.showMyDialog(
         context,
         OverviewItemSelectionForm(
           title: title,
-          overviewItem: soi,
+          overviewItem: soi!,
         )).then((_) => setState(() {
           if (!_autoRefresh) refreshOverviews();
         }));
@@ -158,7 +163,7 @@ class _MainPageState extends State<MainPage> with WidgetsBindingObserver {
                 featureId: showDrawerFeatureId,
                 tapTarget: Icon(Icons.menu),
                 title: Text('Click here to open menu'),
-                description: Text('On the menu you can setup identities, devices and more settings'),                
+                description: Text('On the menu you can setup identities, devices and more settings'),
                 child: Icon(Icons.menu),
               ))),
       body: RefreshIndicator(
@@ -177,7 +182,7 @@ class _MainPageState extends State<MainPage> with WidgetsBindingObserver {
         featureId: addOverviewFeatureId,
         tapTarget: const Icon(Icons.add),
         title: Text('Add new overview to main view'),
-        description: Text('After setting up your device, you can add an overview for that device'),        
+        description: Text('After setting up your device, you can add an overview for that device'),
         child: FloatingActionButton(
           onPressed: () {
             showAddDialog();
@@ -190,12 +195,12 @@ class _MainPageState extends State<MainPage> with WidgetsBindingObserver {
 
   static const drawerIconWidth = 60.0;
 
-  get _autoRefreshInterval {
+  int get _autoRefreshInterval {
     if (SettingsUtil.appSettings == null) return 10;
     return SettingsUtil.appSettings.autoRefreshInterval;
   }
 
-  set _autoRefreshInterval(int val) {
+  void set _autoRefreshInterval(int val) {
     SettingsUtil.appSettings.autoRefreshInterval = val;
     SettingsUtil.saveAppSettings();
   }
@@ -205,7 +210,7 @@ class _MainPageState extends State<MainPage> with WidgetsBindingObserver {
     return SettingsUtil.appSettings.autoRefresh;
   }
 
-  set _autoRefresh(bool val) {
+  void set _autoRefresh(bool val) {
     SettingsUtil.appSettings.autoRefresh = val;
     SettingsUtil.saveAppSettings();
   }
@@ -235,21 +240,21 @@ class _MainPageState extends State<MainPage> with WidgetsBindingObserver {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: <Widget>[
-                            Text('Options'),                            
-                            Expanded(child: 
+                            Text('Options'),
+                            Expanded(child:
                             Row(mainAxisAlignment: MainAxisAlignment.end, children:[ IconButton(onPressed: () {
                               Navigator.pop(context);
                               SettingsUtil.getDevices().then((dvs) {
-                                Clipboard.setData(ClipboardData(text: OpenWRTClient.lastJSONRequest + "\n\n" + OpenWRTClient.lastJSONResponse + "\n\n" + jsonEncode(dvs)));
-                                Dialogs.simpleAlert(context, "", "Debug data\n Copied to clipboard");                              
+                                Clipboard.setData(ClipboardData(text: OpenWRTClient.lastJSONRequest + "\n\n" + OpenWRTClient.lastJSONResponse! + "\n\n" + jsonEncode(dvs)));
+                                Dialogs.simpleAlert(context, "", "Debug data\n Copied to clipboard");
                               });
-                              
+
                             }, icon: Icon(Icons.help_center))])
                             )
                           ],
                         )
                       ],
-                    ),                    
+                    ),
                     padding: EdgeInsets.fromLTRB(15, 0, 15, 0),
                     margin: EdgeInsets.all(0.0),
                   ),
@@ -299,7 +304,7 @@ class _MainPageState extends State<MainPage> with WidgetsBindingObserver {
                     var results = Map<String,List<String>>();
                     SettingsUtil.getIdentities().then((ids) {
                       SettingsUtil.getDevices().then((dvs) {
-                        Navigator.pop(context);                        
+                        Navigator.pop(context);
                         updateDevicesData(dvs).then((x) {
                           Navigator.pop(context);
                           if (x.length > 0) Dialogs.simpleAlert(context, "Update Device failed", x.join(","));
@@ -319,9 +324,9 @@ class _MainPageState extends State<MainPage> with WidgetsBindingObserver {
                             Switch(
                               onChanged: (bool value) {
                                 setState(() {
-                                  _darkTheme = value;                                                                     
+                                  _darkTheme = value;
                                   Provider.of<ThemeChangeNotifier>(context, listen: false).toggleTheme();
-                                });                                
+                                });
                               },
                               value: _darkTheme,
                             ),
@@ -346,7 +351,7 @@ class _MainPageState extends State<MainPage> with WidgetsBindingObserver {
                             ),
                           ],
                         )),
-                    title: Text("Auto Refresh")),                    
+                    title: Text("Auto Refresh")),
                 Visibility(
                     visible: _autoRefresh,
                     child: ListTile(
@@ -360,16 +365,16 @@ class _MainPageState extends State<MainPage> with WidgetsBindingObserver {
                           DropdownButton(
                             value: _autoRefreshInterval,
                             items: availableAutoRefreshIntervals,
-                            onChanged: (value) {
+                            onChanged: (int? value) {
                               setState(() {
-                                _autoRefreshInterval = value;
+                                _autoRefreshInterval = value!;
                                 reinitAutoRefreshTimer();
                               });
                             },
                           )
                         ],
                       ),
-                    )),                
+                    )),
               ])),
           Column(children: <Widget>[
             Expanded(
@@ -400,7 +405,7 @@ class _MainPageState extends State<MainPage> with WidgetsBindingObserver {
       for (var oi in SettingsUtil.overviews) {
         if (!requestMap.containsKey(oi.deviceGuid)) requestMap[oi.deviceGuid] = [];
         var l = requestMap[oi.deviceGuid];
-        for (var n in OverviewItemManager.items[oi.overiviewItemGuid].commands)
+        for (var n in OverviewItemManager.items[oi.overviewItemGuid].commands)
           if (l.firstWhere((x) => x.runtimeType == n.runtimeType, orElse: () => null) == null) {
             var nr = n.createReply(ReplyStatus.Ok, null,
                 device: SettingsUtil.devices.firstWhere((d) => d.guid == oi.deviceGuid));
@@ -459,7 +464,7 @@ class _MainPageState extends State<MainPage> with WidgetsBindingObserver {
     {
       lst.add(Container(
         padding: EdgeInsets.all(5),
-        child: Center(child:Text("No devices added.\nAdd them from menu option.", textAlign: TextAlign.center,))));        
+        child: Center(child:Text("No devices added.\nAdd them from menu option.", textAlign: TextAlign.center,))));
     }
   }
 
@@ -476,37 +481,39 @@ class _MainPageState extends State<MainPage> with WidgetsBindingObserver {
   }
 
   getOverviewMainWidget(SelectedOverviewItem oi) {
-    var ovi = OverviewItemManager.items[oi.overiviewItemGuid];
+    var ovi = OverviewItemManager.items[oi.overviewItemGuid];
     var device = SettingsUtil.devices.firstWhere((x) => oi.deviceGuid == x.guid, orElse: () => null);
     if (device == null) return Text("Bad device");
-    AuthenticateReply deviceAuthenticationStatus;
+    AuthenticateReply? deviceAuthenticationStatus;
+
     if (_deviceAuthentication.containsKey(device)) deviceAuthenticationStatus = _deviceAuthentication[device];
-    List<CommandReplyBase> deviceReplies;
+
+    List<CommandReplyBase>? deviceReplies;
     if (_deviceReply.containsKey(device)) deviceReplies = _deviceReply[device];
     var inRefresh = _refreshing &&
         deviceReplies == null &&
         (deviceAuthenticationStatus == null || deviceAuthenticationStatus.status == ReplyStatus.Ok);
-    switch (ovi.type) {
+    switch (ovi!.type) {
       case OverviewItemType.SystemInfo:
-        return SystemInfo(device, inRefresh, deviceAuthenticationStatus, deviceReplies, ovi, oi.guid, refreshOverviews);
+        return SystemInfo(device, inRefresh, deviceAuthenticationStatus!, deviceReplies!, ovi, oi.guid, refreshOverviews);
         break;
       case OverviewItemType.NetworkStatus:
         return NetworkStatus(
-            device, inRefresh, deviceAuthenticationStatus, deviceReplies, ovi, oi.guid, refreshOverviews);
+            device, inRefresh, deviceAuthenticationStatus!, deviceReplies!, ovi, oi.guid, refreshOverviews);
         break;
       case OverviewItemType.NetworkTraffic:
         return NetworkTraffic(
-            device, inRefresh, deviceAuthenticationStatus, deviceReplies, ovi, oi.guid, refreshOverviews);
+            device, inRefresh, deviceAuthenticationStatus!, deviceReplies!, ovi, oi.guid, refreshOverviews);
         break;
       case OverviewItemType.WifiStatus:
-        return WIFIStatus(device, inRefresh, deviceAuthenticationStatus, deviceReplies, ovi, oi.guid, refreshOverviews);
+        return WIFIStatus(device, inRefresh, deviceAuthenticationStatus!, deviceReplies!, ovi, oi.guid, refreshOverviews);
         break;
       case OverviewItemType.DHCPLeaseInfo:
-        return DHCPLeaseStatus(device, inRefresh, deviceAuthenticationStatus, deviceReplies, ovi, oi.guid, refreshOverviews);
+        return DHCPLeaseStatus(device, inRefresh, deviceAuthenticationStatus!, deviceReplies!, ovi, oi.guid, refreshOverviews);
         break;
         case OverviewItemType.ActiveConnections:
         return ActiveConnections(
-            device, inRefresh, deviceAuthenticationStatus, deviceReplies, ovi, oi.guid, refreshOverviews);
+            device, inRefresh, deviceAuthenticationStatus!, deviceReplies!, ovi, oi.guid, refreshOverviews);
         break;
     }
   }
