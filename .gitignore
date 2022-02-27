@@ -40,3 +40,5 @@ CreateRelease.cmd
 # IDE gen
 android/app/src/debug/gen
 android/app/src/profile/gen
+
+logread.txt
