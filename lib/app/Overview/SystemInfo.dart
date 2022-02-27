@@ -32,7 +32,7 @@ class SystemInfoState extends OverviewWidgetBaseState
 
   @override
   Widget get myWidget {
-    var infoData =  data[0][1];
+    var infoData = data[0][1];
     var uptime = infoData["uptime"];
     var load = infoData["load"] as List<dynamic>;
     var memoryTotal = infoData["memory"]["total"];
@@ -49,7 +49,8 @@ class SystemInfoState extends OverviewWidgetBaseState
     var releaseData = boardData["release"];
 
     var dhcpLeaseData = data[2][1];
-    var dhcpLeaseList  = DHCPLeaseStatusState.getDHCPLeaseListFromJSON(dhcpLeaseData["dhcp_leases"]);
+    var dhcpLeaseList = DHCPLeaseStatusState.getDHCPLeaseListFromJSON(
+        dhcpLeaseData["dhcp_leases"]);
     DataCache.updateData(dhcpLeaseList);
 
     var alwaysVisibleRows = getRows({
@@ -60,7 +61,13 @@ class SystemInfoState extends OverviewWidgetBaseState
           "Mb/" +
           (memoryTotal / 1024 / 1024).toStringAsFixed(2) +
           "Mb",
-      "Disk Usage": "Free: " + (diskFree/1024).toStringAsFixed(2) + "M Used: " + (diskUsed/1024).toStringAsFixed(2) + "M Total: " + (diskTotal/1024).toStringAsFixed(2) + "M"
+      "Disk Usage": "Free: " +
+          (diskFree / 1024).toStringAsFixed(2) +
+          "M Used: " +
+          (diskUsed / 1024).toStringAsFixed(2) +
+          "M Total: " +
+          (diskTotal / 1024).toStringAsFixed(2) +
+          "M"
     });
 
     List<Widget> rows = [];

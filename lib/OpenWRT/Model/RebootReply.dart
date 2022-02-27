@@ -14,7 +14,8 @@ class RebootReply extends CommandReplyBase {
   }
 
   @override
-  RebootReply createReply(ReplyStatus status, Map<String, Object> data, {Device device}) {
+  RebootReply createReply(ReplyStatus status, Map<String, Object> data,
+      {Device device}) {
     var i = RebootReply(status);
     i.data = data;
     return i;

@@ -143,9 +143,7 @@ abstract class OverviewWidgetBaseState extends State<OverviewWidgetBase> {
                     )))
           ],
         ),
-        Container(
-            decoration: BoxDecoration(),
-            child: getWidget())
+        Container(decoration: BoxDecoration(), child: getWidget())
       ]),
     );
   }
@@ -197,9 +195,7 @@ abstract class OverviewWidgetBaseState extends State<OverviewWidgetBase> {
 
       try {
         oldData = orderdList.map((x) => x.data["result"]).toList();
-      } catch (e) {
-
-      }
+      } catch (e) {}
       return oldData;
     }
     return oldData;
@@ -223,16 +219,15 @@ abstract class OverviewWidgetBaseState extends State<OverviewWidgetBase> {
     return _gotNewData;
   }
 
-  int get currentReplyTimeStamp
-  {
-    if (widget.replies == null || widget.replies.length == 0)
-      return 0;
+  int get currentReplyTimeStamp {
+    if (widget.replies == null || widget.replies.length == 0) return 0;
     return widget.replies.first.replyTimeStamp;
   }
 
   Widget _getMyWidget() {
     try {
-      _gotNewData = currentReplyTimeStamp > 0 && currentReplyTimeStamp != lastReplyTimeStamp;
+      _gotNewData = currentReplyTimeStamp > 0 &&
+          currentReplyTimeStamp != lastReplyTimeStamp;
       var w = myWidget;
       lastReplyTimeStamp = currentReplyTimeStamp;
       _gotNewData = false;
@@ -240,16 +235,30 @@ abstract class OverviewWidgetBaseState extends State<OverviewWidgetBase> {
       return w;
     } catch (e, stackTrace) {
       badReplyData = true;
-      return generateErrorText(e, stackTrace, "Error parsing reply from device");
+      return generateErrorText(
+          e, stackTrace, "Error parsing reply from device");
     }
   }
 
   Column generateErrorText(e, StackTrace stackTrace, String text) {
     return Column(children: [
-    Row(mainAxisAlignment: MainAxisAlignment.center, children: [Expanded(child: Text(text))]),
-    Row(mainAxisAlignment: MainAxisAlignment.center, children: [ElevatedButton(child: Text("Copy Debug Trace To Clipboard"), onPressed:() async {
-      Clipboard.setData(ClipboardData(text: e.toString() + "\n" + stackTrace.toString() + "\n" + OpenWRTClient.lastJSONRequest + "\n" + OpenWRTClient.lastJSONResponse));
-    })]),
+      Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [Expanded(child: Text(text))]),
+      Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+        ElevatedButton(
+            child: Text("Copy Debug Trace To Clipboard"),
+            onPressed: () async {
+              Clipboard.setData(ClipboardData(
+                  text: e.toString() +
+                      "\n" +
+                      stackTrace.toString() +
+                      "\n" +
+                      OpenWRTClient.lastJSONRequest +
+                      "\n" +
+                      OpenWRTClient.lastJSONResponse));
+            })
+      ]),
     ]);
   }
 

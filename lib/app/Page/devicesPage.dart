@@ -22,10 +22,12 @@ class DevicesPage extends StatefulWidget {
 class _DevicesPageState extends State<DevicesPage> {
   void showAddDialog() {
     if (SettingsUtil.identities.length == 0) {
-      Dialogs.simpleAlert(context, "", "No identities are defined\nAdd at least one identity",
+      Dialogs.simpleAlert(
+          context, "", "No identities are defined\nAdd at least one identity",
           buttonText: "Add identity", closeAction: () {
         Navigator.pop(context);
-        Navigator.push(context, MaterialPageRoute(builder: (context) => IdentitiesPage()));
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => IdentitiesPage()));
       });
       return;
     }
@@ -95,16 +97,18 @@ class _DevicesPageState extends State<DevicesPage> {
                     style: ElevatedButton.styleFrom(
                       primary: Colors.blue,
                       onPrimary: Colors.white,
-                      ),
+                    ),
                     onPressed: () {
-                        showEditDialog(d);
+                      showEditDialog(d);
                     },
                     child: Text("Edit"),
                   ),
                 ))
               ]),
               onTap: () => {showRunCommandDialog(d)}),
-          decoration: new BoxDecoration(border: new Border(bottom: new BorderSide(width: 0.5, color: Colors.grey))));
+          decoration: new BoxDecoration(
+              border: new Border(
+                  bottom: new BorderSide(width: 0.5, color: Colors.grey))));
       lst.add(lt);
     }
     return lst;

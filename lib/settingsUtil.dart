@@ -25,7 +25,7 @@ class SettingsUtil {
 
 // overview configs
 
-static OverviewConfig _overviewConfig;
+  static OverviewConfig _overviewConfig;
 
   static OverviewConfig get overviewConfig {
     return _overviewConfig;
@@ -70,21 +70,18 @@ static OverviewConfig _overviewConfig;
   }
 
   static Future<bool> loadAppSettings() async {
-    try
-    {
-    await appSettingsFile.then((f) {
-      if (f.existsSync()) {
-        String data = f.readAsStringSync();
-        _appSetting = AppSetting.fromJson(json.decode(data));
-        return Future.value(true);
-      }
-      _appSetting = AppSetting();
+    try {
+      await appSettingsFile.then((f) {
+        if (f.existsSync()) {
+          String data = f.readAsStringSync();
+          _appSetting = AppSetting.fromJson(json.decode(data));
+          return Future.value(true);
+        }
+        _appSetting = AppSetting();
+        return Future.value(false);
+      });
       return Future.value(false);
-    });
-    return Future.value(false);
-    }
-    catch (e)
-    {
+    } catch (e) {
       _appSetting = AppSetting();
       return Future.value(false);
     }

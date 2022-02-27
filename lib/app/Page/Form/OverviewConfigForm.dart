@@ -55,10 +55,10 @@ class OverviewConfigFormState extends State<OverviewConfigForm> {
               width: 250,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                      primary: Colors.blue,
-                      onPrimary: Colors.white,
-                      )                ,
-                child: Text("Save"),                
+                  primary: Colors.blue,
+                  onPrimary: Colors.white,
+                ),
+                child: Text("Save"),
                 onPressed: () {
                   saveConfig();
                 },

@@ -1,15 +1,6 @@
-enum ReplyStatus
-{
-  Ok,
-  Forbidden,
-  Timeout,
-  Error,
-  HandshakeError,
-  NotFound
-}
+enum ReplyStatus { Ok, Forbidden, Timeout, Error, HandshakeError, NotFound }
 
-abstract class ReplyBase
-{
+abstract class ReplyBase {
   ReplyBase(this.status);
 
   final ReplyStatus status;

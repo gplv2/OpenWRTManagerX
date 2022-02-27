@@ -9,7 +9,11 @@ class RRDNSReply extends CommandReplyBase {
   String mac;
 
   @override
-  List<dynamic> get commandParameters => ["network.rrdns", "lookup", {"addrs" : ipList}];
+  List<dynamic> get commandParameters => [
+        "network.rrdns",
+        "lookup",
+        {"addrs": ipList}
+      ];
 
   @override
   Object createReply(ReplyStatus status, Map<String, Object> data,

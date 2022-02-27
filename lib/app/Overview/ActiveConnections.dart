@@ -54,8 +54,7 @@ class ActiveConnectionsState extends OverviewWidgetBaseState {
     }
   }
 
-  int getBytes(dynamic b)
-  {
+  int getBytes(dynamic b) {
     return double.parse(b.toString()).round();
   }
 
@@ -69,12 +68,13 @@ class ActiveConnectionsState extends OverviewWidgetBaseState {
         children: [Text("No active connections")],
       ));
     } else {
-      connectionsList.sort((a, b) =>
-          getBytes(b["bytes"]) - getBytes(a["bytes"]));
+      connectionsList
+          .sort((a, b) => getBytes(b["bytes"]) - getBytes(a["bytes"]));
 
       List<String> ipToResolve = [];
       var currentTimeStamp = new DateTime.now().millisecondsSinceEpoch;
-      for (var con in connectionsList.take(expanded ? EXPANDED_MAX_ROWS : MAX_ROWS)) {
+      for (var con
+          in connectionsList.take(expanded ? EXPANDED_MAX_ROWS : MAX_ROWS)) {
         var bytes = double.parse(con["bytes"].toString()).round();
         checkIpForLookup(con["src"], ipToResolve);
         checkIpForLookup(con["dst"], ipToResolve);
@@ -125,13 +125,17 @@ class ActiveConnectionsState extends OverviewWidgetBaseState {
                     child: Container(
                         width: 100,
                         child: Center(
-                            child: Text(
-                                speedText != null ? speedText : (Utils.NoSpeedCalculationText + " Kb/s"))))),
+                            child: Text(speedText != null
+                                ? speedText
+                                : (Utils.NoSpeedCalculationText + " Kb/s"))))),
                 Container(
                     width: 100,
-                    child: Align(alignment: Alignment.centerRight,
-                        child:
-                            Text(Utils.formatBytes(bytes, decimals: 2), style: TextStyle(fontWeight: FontWeight.bold),)))
+                    child: Align(
+                        alignment: Alignment.centerRight,
+                        child: Text(
+                          Utils.formatBytes(bytes, decimals: 2),
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        )))
               ]),
               SizedBox(
                 height: 5,

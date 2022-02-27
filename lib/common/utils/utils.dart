@@ -7,10 +7,10 @@ import 'package:openwrt_managerx/common/config/config.dart';
 import 'package:openwrt_managerx/common/config/prefs/pref_utils.dart';
 import 'package:openwrt_managerx/common/widgets/log.dart';
 
-class Utils
-{
+class Utils {
   static const String NoSpeedCalculationText = "-----";
-  static const bool ReleaseMode = bool.fromEnvironment('dart.vm.product', defaultValue: false);
+  static const bool ReleaseMode =
+      bool.fromEnvironment('dart.vm.product', defaultValue: false);
 
   static String formatDuration(Duration d) {
     var seconds = d.inSeconds;
@@ -41,7 +41,8 @@ class Utils
     const suffixes = ["B", "Kb", "Mb", "Gb", "Tb", "Pb"];
     var i = (log(bytes) / log(1024)).floor();
     var number = (bytes / pow(1024, i));
-    return (number).toStringAsFixed(number.truncateToDouble() == number ? 0 : decimals) +
+    return (number).toStringAsFixed(
+            number.truncateToDouble() == number ? 0 : decimals) +
         ' ' +
         suffixes[i];
   }

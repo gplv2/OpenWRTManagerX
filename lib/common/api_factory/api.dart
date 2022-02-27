@@ -78,8 +78,7 @@ class Api {
       required OnResponse onResponse,
       required OnError onError}) async {
     Future.delayed(Duration(microseconds: 1), () {
-      if (path != ApiEndPoints.luci &&
-          path != ApiEndPoints.cgi) showLoading();
+      if (path != ApiEndPoints.luci && path != ApiEndPoints.cgi) showLoading();
     });
 
     Response response;

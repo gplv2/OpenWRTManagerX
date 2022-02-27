@@ -12,7 +12,11 @@ class RestartInterfaceReply extends CommandReplyBase {
   List<dynamic> get commandParameters {
     List<dynamic> lst = [];
     lst.addAll(["file", "exec"]);
-    lst.add({'command': '/sbin/ifup', 'params': [interfaceName], 'env': null});
+    lst.add({
+      'command': '/sbin/ifup',
+      'params': [interfaceName],
+      'env': null
+    });
     return lst;
   }
 

@@ -1,12 +1,10 @@
-class Identity
-{
+class Identity {
   late String guid;
   late String? displayName;
   late String username;
   late String password;
 
-  String get name
-  {
+  String get name {
     return displayName ?? username;
   }
 
@@ -17,12 +15,12 @@ class Identity
         'password': password,
       };
 
-      static Identity fromJson(Map<String, dynamic> json){
-         var i = Identity();
-         i.guid = json['guid'].toString();
-         i.username = json['username'].toString();
-         i.displayName = json['displayName'].toString();
-         i.password = json['password'].toString();
-         return i;
-       }
+  static Identity fromJson(Map<String, dynamic> json) {
+    var i = Identity();
+    i.guid = json['guid'].toString();
+    i.username = json['username'].toString();
+    i.displayName = json['displayName'].toString();
+    i.password = json['password'].toString();
+    return i;
+  }
 }
