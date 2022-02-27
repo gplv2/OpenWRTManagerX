@@ -46,7 +46,7 @@ push: commit ## push code to repo
 push_bad: ## push code that is not ok
 	@echo "╠ Pushing bad code..."
 	git commit -am 'Commit code that does not work'
-	git push
+	git push origin
 
 run_dev_web: ## Runs the web application in dev
 	@echo "╠ Running the app"
