@@ -24,7 +24,7 @@ doc: ## build docs on the lib code
 
 doc_clean: ## Cleanup of the documentation code
 	@echo "╠ Clean doc code"
-	rm -Rf doc/api/*
+	@rm -Rf doc/api/*
 
 lint: ## Lints the code
 	@echo "╠ Verifying code..."
