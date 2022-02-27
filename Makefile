@@ -2,16 +2,8 @@
 
 all: lint format run_dev_mobile
 
-help: ## This help dialog.
-	@IFS=$$'\n' ; \
-	help_lines=(`fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//'`); \
-	for help_line in $${help_lines[@]}; do \
-	IFS=$$'#' ; \
-	help_split=($$help_line) ; \
-	help_command=`echo $${help_split[0]} | sed -e 's/^ *//' -e 's/ *$$//'` ; \
-	help_info=`echo $${help_split[2]} | sed -e 's/^ *//' -e 's/ *$$//'` ; \
-	printf "%-30s %s\n" $$help_command $$help_info ; \
-	done
+help: ## show help message
+	@awk 'BEGIN {FS = ":.*##"; printf "\nUsage:\n  make \033[36m\033[0m\n"} /^[$$()% 0-9a-zA-Z_-]+:.*?##/ { printf "  \033[36m%-15s\033[0m %s\n", $$1, $$2 } /^##@/ { printf "\n\033[1m%s\033[0m\n", substr($$0, 5) } ' $(MAKEFILE_LIST)
 
 run_unit: ## Runs unit tests
 	@echo "╠ Running the tests"
