@@ -39,6 +39,15 @@ commit: format lint run_unit
 	git add .
 	git commit
 
+push: commit ## push code to repo
+	@echo "╠ Pushing code..."
+	git push
+
+push_bad: ## push code that is not ok
+	@echo "╠ Pushing bad code..."
+	git commit -am 'Commit code that does not work'
+	git push
+
 run_dev_web: ## Runs the web application in dev
 	@echo "╠ Running the app"
 	@flutter run -d chrome --dart-define=ENVIRONMENT=dev
