@@ -34,7 +34,7 @@ upgrade: clean ## Upgrades dependencies
 	@echo "╠ Upgrading dependencies..."
 	@flutter pub upgrade
 
-commit: format lint run_unit
+commit: format lint run_unit ## Commit the code after lint
 	@echo "╠ Committing..."
 	git add .
 	git commit
@@ -56,7 +56,7 @@ run_dev_mobile: ## Runs the mobile application in dev
 	@echo "╠ Running the app"
 	@flutter run --flavor dev
 
-build_dev_mobile: clean run_unit
+build_dev_mobile: clean run_unit ## build dev mobile
 	@echo "╠  Building the app"
 	@flutter build apk --flavor dev
 
